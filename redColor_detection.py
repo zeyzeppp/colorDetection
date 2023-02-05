@@ -10,6 +10,7 @@ upRed = np.array([179, 255, 255])
 while True:
     ret, frame = cap.read()
     frame = cv2.resize(frame, (540, 960))
+    #frame = cv2.flip(frame, 1)
     hsv_zey = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
     red_mask = cv2.inRange(hsv_zey, lowRed, upRed)
     red = cv2.bitwise_and(frame, frame, mask = red_mask)
